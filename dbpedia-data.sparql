@@ -1,0 +1,15 @@
+PREFIX dbp: <http://dbpedia.org/property/>
+PREFIX dbr: <http://dbpedia.org/resource/>
+PREFIX dbr-c: <http://dbpedia.org/resource/Category:>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>
+PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX dct: <http://purl.org/dc/terms/>
+
+SELECT DISTINCT ?name ?lat WHERE { 
+  ?uri dct:subject dbr-c:Member_states_of_the_European_Union.
+  ?uri rdfs:label ?name.
+  ?uri geo:lat ?lat.
+  FILTER (LANG(?name)='en') 
+}
+ORDER BY ASC(?name)
